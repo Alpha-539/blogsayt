@@ -6,11 +6,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
-    <title>Abdurahmonov Blog</title>
+    <title>AbdurahmonovCoder Blog</title>
 </head>
 <body>
     <header>
-        <h1><a href="{% url 'home' %}">Abdurahmonov Blog</a></h1>
+        <h1><a href="{% url 'home' %}">AbdurahmonovCoder Blog</a></h1>
     </header>
     {% if user.is_authenticated %}
         <h3>Xush kelibsiz {{user.username}}</h3>
