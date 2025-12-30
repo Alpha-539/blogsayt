@@ -1,0 +1,32 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <title>Blog site</title>
+</head>
+<body>
+    <header>
+        <h1><a href="{% url 'home' %}">Blog sayt</a></h1>
+    </header>
+    {% if user.is_authenticated %}
+        <h3>Xush kelibsiz {{user.username}}</h3>
+        <form method="post" action="{% url 'logout' %}">{%csrf_token%}
+            {{form.as_p}}
+            <button type="submit">Chiqish</button>
+        </form>
+    {% else %}
+        <h3>
+        <a href="{% url 'login' %}">Kirish</a> |
+        <a href="{% url 'signup' %}">Ro'yxatdan o'tish</a>
+        </h3>
+    {% endif %}
+    <div>
+        {% block content %}
+        {% endblock content %}
+    </div>
+</body>
+</html>
